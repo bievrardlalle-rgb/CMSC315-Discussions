@@ -1,28 +1,29 @@
-[README.md](https://github.com/user-attachments/files/31165021/README.md)
-# Unit 1 Discussion: Python OOP, Namespaces, and Copying
+# Unit 2 Discussion: Stacks and Queues
 
 ## Overview
 
-This assignment explores object-oriented programming (OOP) concepts in Python, including inheritance, namespaces, and object copying.
+This assignment explores two fundamental linear data structures:
+
+- Stack (LIFO)
+- Queue (FIFO)
 
 ## Learning Objectives
 
-- Create parent and child classes
-- Use inheritance to extend functionality
-- Understand class and instance namespaces
-- Demonstrate shallow and deep copying
-- Apply object-oriented design principles
+- Implement stack operations
+- Implement queue operations
+- Understand LIFO and FIFO behavior
+- Create edge cases
 
 ## Requirements
 
-Complete all TODO sections in the source code:
+Complete all TODO sections:
 
-1. Create a parent class.
-2. Create a child class using inheritance.
-3. Demonstrate class and instance namespaces.
-4. Demonstrate shallow and deep copying.
-5. Create and test objects in `main()`.
-6. Add a student-created extension.
+1. Implement stack operations.
+2. Implement queue operations.
+3. Demonstrate LIFO behavior.
+4. Demonstrate FIFO behavior.
+5. Create and test edge cases.
+6. Create a real-world scenario.
 
 ## Discussion Board Reflection
 
@@ -32,5 +33,4 @@ Your reflection should be approximately 150–200 words and address the followin
 
 1. What concepts or skills did you learn while completing this assignment?
 2. What challenges did you encounter, and how did you overcome them?
-3. Compare OOP to procedural programming.
-4. Discuss the benefits of maintainability and reusability and apply this managing overhead, practical application development, and future use.
+3. Explain the differences between stacks and queues as this relates to real-world applications.
