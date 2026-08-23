@@ -25,8 +25,14 @@ from copy import copy, deepcopy
 # Replace the pass statement with your implementation.
 
 class ParentClass:
-    pass
+    category = "Employee"
 
+        def __init__(self, name, employee_id):
+            self.name = name
+            self.employee_id = employee_id
+
+        def display_info(self):
+            return f"Name: {self.name}, Employee ID: {self.employee_id}"
 
 # TODO 2:
 # Create a child class that inherits from the parent class.
@@ -41,7 +47,20 @@ class ParentClass:
 # Replace the pass statement with your implementation.
 
 class ChildClass(ParentClass):
-    pass
+    class ChildClass(ParentClass):
+        department = "Information Technology"
+
+        def __init__(self, name, employee_id, job_title, skills):
+            super().__init__(name, employee_id)
+            self.job_title = job_title
+            self.skills = skills
+
+        def display_info(self):
+            return (f"Name: {self.name}, Employee ID: {self.employee_id}, "
+                    f"Job Title: {self.job_title}, Department: {self.department}")
+
+        def display_skills(self):
+            return f"{self.name}'s skills: {', '.join(self.skills)}"
 
 
 # TODO 3:
@@ -57,7 +76,29 @@ class ChildClass(ParentClass):
 
 def demonstrate_namespaces():
     print("\n=== Namespace Demonstration ===")
-    print("TODO: Implement namespace demonstration")
+
+    employee1 = ChildClass(
+            "Alex", 101, "Software Developer", ["Python", "Java"]
+        )
+        employee2 = ChildClass(
+            "Jordan", 102, "IT Specialist", ["Networking", "Security"]
+        )
+
+        # Access a class variable through the class.
+        print("Class variable through class:", ChildClass.department)
+
+        # Access the same class variable through an object.
+        print("Class variable through object:", employee1.department)
+
+        # Add an attribute to only one object.
+        employee1.certification = "Security+"
+
+        # Display each object's instance namespace.
+        print("Employee 1 namespace:", employee1.__dict__)
+        print("Employee 2 namespace:", employee2.__dict__)
+
+        # Display information about the class namespace.
+        print("Child class namespace:", ChildClass.__dict__)
 
 
 # TODO 4:
@@ -73,7 +114,27 @@ def demonstrate_namespaces():
 
 def demonstrate_copying():
     print("\n=== Copy Demonstration ===")
-    print("TODO: Implement shallow copy and deep copy demonstration")
+
+    original = ChildClass(
+        "Taylor", 103, "Systems Administrator",
+        ["Python", "Linux", "Networking"]
+    )
+
+    # Create a shallow copy and a deep copy.
+    shallow_copy = copy(original)
+    deep_copy = deepcopy(original)
+
+    # Modify nested mutable data in the original object.
+    original.skills.append("Cloud Computing")
+
+    # A shallow copy shares the nested skills list with the original,
+    # so the change appears in both objects.
+    # A deep copy creates an independent copy of the nested list,
+    # so the change does not appear in the deep copy.
+
+    print("Original skills:", original.skills)
+    print("Shallow copy skills:", shallow_copy.skills)
+    print("Deep copy skills:", deep_copy.skills)
 
 
 # TODO 5:
@@ -82,6 +143,7 @@ def demonstrate_copying():
 # Requirements:
 # - Create at least one object from the parent class.
 # - Create at least one object from the child class.
+
 # - Demonstrate inheritance by calling methods.
 # - Call your namespace demonstration function.
 # - Call your copy demonstration function.
@@ -90,8 +152,20 @@ def main():
     print("=== Unit 1 OOP Assignment ===")
 
     print("\nTODO: Create and test your parent object")
+    parent = ParentClass("Chris", 100)
+    print(parent.display_info())
 
     print("\nTODO: Create and test your child object")
+    child = ChildClass(
+        "Morgan", 200, "Cybersecurity Analyst",
+        ["Python", "Networking", "Cybersecurity"]
+    )
+
+    # Demonstrate the overridden method inherited from the parent structure.
+    print(child.display_info())
+
+    # Demonstrate the new method created in the child class.
+    print(child.display_skills())
 
     demonstrate_namespaces()
     demonstrate_copying()
